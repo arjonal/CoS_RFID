@@ -1,3 +1,4 @@
 # CoS_RFID
-Configurable SDR-RFID reader to identify WISP and commercial tags. Custom anti-collision protocols implementation.
-Implemented with an USRP-N210.
+Configurable SDR-RFID reader to identify WISP-5 and commercial tags. 
+Custom anti-collision protocols implementation.
+Current version implemented with an USRP-N210.
