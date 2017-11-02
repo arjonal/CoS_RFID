@@ -26,7 +26,7 @@ class reader_top_block(gr.top_block):
     self.source.set_center_freq(self.freq, 0)
     self.source.set_gain(self.rx_gain, 0)
     self.source.set_antenna("RX2", 0)
-    self.source.set_auto_dc_offset(False) # Uncomment this line for SBX daughterboard
+    self.source.set_auto_dc_offset(False) 
 
   # Configure usrp sink
   def u_sink(self):
@@ -52,8 +52,8 @@ class reader_top_block(gr.top_block):
     self.ampl     = 0.8       # Output signal amplitude (signal power vary for different RFX900 cards)
     self.freq     = myfreq                # Modulation frequency (can be set between 902-920) # 
     self.rx_gain   = -15              # RX Gain (gain at receiver)
-    self.tx_gain   = 20      # RFX900 no Tx gain option
-   
+    self.tx_gain   = 30       # RFX900 no Tx gain option
+
     self.usrp_address_source = "addr=192.168.10.105,recv_frame_size=256"
     self.usrp_address_sink   = "addr=192.168.10.105,recv_frame_size=256"
 
@@ -67,6 +67,8 @@ class reader_top_block(gr.top_block):
     self.file_sink_gate           = blocks.file_sink(gr.sizeof_gr_complex*1, "../misc/data/gate", False)
     self.file_sink_decoder        = blocks.file_sink(gr.sizeof_gr_complex*1, "../misc/data/decoder", False)
     self.file_sink_reader         = blocks.file_sink(gr.sizeof_float*1,      "../misc/data/reader", False)
+    self.file_sink_amp             = blocks.file_sink(gr.sizeof_float*1,      "../misc/data/amp", False)
+
 
     ######## Blocks #########
     self.matched_filter = filter.fir_filter_ccc(self.decim, self.num_taps);
@@ -76,12 +78,12 @@ class reader_top_block(gr.top_block):
     self.amp              = blocks.multiply_const_ff(self.ampl)
     self.to_complex      = blocks.float_to_complex()
 
- 
+    
     # USRP blocks
     self.u_source()
     self.u_sink()
 
-    ######## Connections #########
+    ######## Connections #########  
     self.connect(self.source,  self.matched_filter)
     self.connect(self.matched_filter, self.gate)
 
@@ -94,13 +96,12 @@ class reader_top_block(gr.top_block):
     #File sinks for logging (Remove comments to log data)
     self.connect(self.source, self.file_sink_source)
 
-
     #File sinks for logging 
     self.connect(self.gate, self.file_sink_gate)
     self.connect((self.tag_decoder,1), self.file_sink_decoder) # (Do not comment this line)
     #self.connect(self.file_sink_reader, self.file_sink_reader)
     self.connect(self.matched_filter, self.file_sink_matched_filter)
-
+    self.connect(self.amp, self.file_sink_amp)
 
 if __name__ == '__main__':
 
