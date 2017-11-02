@@ -49,5 +49,5 @@ RFID Technology: Design Principles, Applications and Controversies. Nova Publish
   
 	Contact:
  ------------------------
-  Laura Arjona (e-mail1: arjonal@uw.edu   laura.arjona@deusto.es)  
+  Laura Arjona (e-mail: arjonal@uw.edu   laura.arjona@deusto.es)  
 

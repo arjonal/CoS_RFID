@@ -2,6 +2,8 @@
 Configurable SDR-RFID reader to identify WISP-5 and commercial tags. 
 Custom anti-collision protocols implementation.
 
+SDR-RFID reader adapted from https://github.com/nikosl21/Gen2-UHF-RFID-Reader
+
 ----------------------------------
         Commercial Tags
 ----------------------------------
