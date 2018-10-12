@@ -1,8 +1,7 @@
 # CoS_RFID
 Configurable SDR-RFID reader to identify WISP-5 and commercial tags. 
+This reader can also read data from the wisp accelerometer sensor
 Custom anti-collision protocols implementation.
-
-SDR-RFID reader adapted from https://github.com/nikosl21/Gen2-UHF-RFID-Reader
 
 ----------------------------------
         Commercial Tags
@@ -28,7 +27,8 @@ Protocols Implemented
   
 Contact:
 Laura Arjona: arjonal@uw.edu, laura.arjona@deusto.es
-
+SDR-RFID reader adapted from https://github.com/nikosl21/Gen2-UHF-RFID-Reader.
+A special thanks to Nikos kargas for his discussions.
 
 
 ----------------------------------
