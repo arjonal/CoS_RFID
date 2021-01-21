@@ -13,7 +13,7 @@ Reader Configuration
  - 40kHz Backscatter Link Frequency (BLF)
  
 Hardware:
-  - 1 USRP FLEX900  
+  - 1 USRP N210
   - 1 SBX daughterboard 
   - 2 circular polarized patch antennas  
   - 1 Gigabit ethernet Switch 
